@@ -21,11 +21,14 @@ public:
 
 	void Start(Vec2 playerPos,Vec2 targetPos);
 
-	void HitWall();
+	void ShotKill();
 
 	void SetFieldData(Field* field);
 	const Vec2 GetPos()const { return _pos; }
 	const int GetCircleScale() const { return _shotScale; }
+	bool IsEnabled() { return _enableFlg; }
+
+	bool HitCheck();
 private:
 
 	Vec2 _pos;
@@ -36,6 +39,8 @@ private:
 	Vec2 _fieldSize;
 
 	int _shotScale;
+
+	bool _brittleFlg;
 
 	bool _enableFlg;
 };

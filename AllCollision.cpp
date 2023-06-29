@@ -1,4 +1,5 @@
 #include "AllCollision.h"
+#include <cmath>
 
 namespace AllCollision{
 
@@ -19,6 +20,22 @@ namespace AllCollision{
 		if (maxHitBox.x < pos.x - circleScale)	return false;
 		return true;
     }
+
+	bool CollCheck_Circle_Circle(Vec2 pos1, int circleScale1, Vec2 pos2, int circleScale2)
+	{
+		int hitDistance = circleScale1 + circleScale2;
+
+		int distance;
+
+		distance = std::abs(sqrt(pow(pos1.x - pos2.x, 2) + pow(pos1.y - pos2.y, 2)));
+
+		if (hitDistance > distance) {
+			return true;
+		}
+
+		return false;
+
+	}
 
 }
 
